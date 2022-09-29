@@ -1,0 +1,28 @@
+<div class="nsinput_container">
+
+  <ng-container *ngIf="type=='text'||type=='password'">
+    <div>
+  <label for="{{name}}"><i [ngClass]="icon"></i></label>
+  <input (blur)="touched($event)" [(ngModel)]="nsinput" #nsinputM="ngModel" [type]="type" name="{{name}}" [id]="name" [placeholder]="placeholder"/>
+</div>
+  <div class="nsinput_err"><div *ngIf="nsinputM?.invalid && (nsinputM.dirty || nsinputM.touched)">
+    <span *ngIf="nsinputM.errors?.['required']" >{{label}} is required</span>
+  </div></div>
+</ng-container>
+<ng-container *ngIf="type=='checkbox'">
+  <div>
+  <input #nsinput  [type]="type" name="{{name}}" [id]="name"/>
+  <label for="{{name}}"><span><span></span></span>Remember me</label>
+</div>
+<div class="nsinput_err"><span></span></div>
+</ng-container>
+<ng-container *ngIf="type=='button'">
+  <div>
+  <input #nsinput  [type]="type" [value]="value"/>
+</div>
+<div class="nsinput_err"><span></span></div>
+</ng-container>
+</div>
+
+
+

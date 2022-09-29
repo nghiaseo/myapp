@@ -1,8 +1,5 @@
 .signin-form{
-  .form-group{
-    label{
-      display: flex;
-      margin-left: 5px;
-    }
-  }
+app-ns-input{
+  display: block;
+}
 }

@@ -6,20 +6,19 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignUpComponent } from './pages/login/sign-up/sign-up.component';
 import { SignInComponent } from './pages/login/sign-in/sign-in.component';
-import { NsInputDirective } from './directives/ns-input.directive';
-
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignUpComponent,
     SignInComponent,
-    NsInputDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
