@@ -9,9 +9,9 @@
           <div class="signin-form">
               <h2 class="form-title">Sign In</h2>
               <form [formGroup]="signinForm">
-                <app-ns-input formControlName="name" [label]="'Account'" [name]="'name'" [placeholder]="'Account'" [icon]="'fa-solid fa-user'" ></app-ns-input>
-                <app-ns-input [label]="'Password'" [name]="'password'" [placeholder]="'Password'" [icon]="'fa-solid fa-lock'" [required]="true"></app-ns-input>
-                <app-ns-input [type]="'checkbox'" [label]="'Remember me'" [name]="'agree-term'"></app-ns-input>
+                <app-ns-input  formControlName="name" [label]="'Account'" [name]="'name'" [placeholder]="'Account'" [icon]="'fa-solid fa-user'" [required]="true" ></app-ns-input>
+                <app-ns-input formControlName="password" [label]="'Password'" [type]="'password'" [name]="'password'" [placeholder]="'Password'" [icon]="'fa-solid fa-lock'" [required]="true" ></app-ns-input>
+                <app-ns-input formControlName="remember" [type]="'checkbox'" [label]="'Remember me'" [name]="'agree-term'"></app-ns-input>
                 <app-ns-input [type]="'button'" [value]="'Log In'" (click)="login()"></app-ns-input>
               </form>
               <div class="social-login">

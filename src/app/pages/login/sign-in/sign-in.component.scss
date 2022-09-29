@@ -2,4 +2,7 @@
 app-ns-input{
   display: block;
 }
+app-ns-input[type=button]{
+  display: inline-block;
+}
 }

@@ -515,11 +515,7 @@ input:focus:-moz-placeholder {
 //   display: none;
 // }
 
-input[type="checkbox"]:not(old) + label {
-  display: inline-block;
-  line-height: 1.5em;
-  margin-top: 6px;
-}
+
 
 input[type="checkbox"]:not(old) + label > span {
   display: inline-block;
@@ -796,4 +792,10 @@ label.valid:after {
     margin-right: 0px;
     margin-bottom: 10px;
   }
+}
+.d-inline-block{
+  display: inline-block !important;
+}
+app-ns-input[ng-reflect-type="button"]{
+  display: inline-block !important;
 }

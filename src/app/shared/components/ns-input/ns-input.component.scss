@@ -4,6 +4,7 @@
   }
   label{
     display: flex;
+    margin-left: 10px;
   }
   input[type=checkbox]{
     visibility: hidden;
@@ -24,9 +25,16 @@
   input[type=button]:focus{
     border: none;
   }
+  input[type="checkbox"]:not(old) + label {
+    display: inline-block;
+    line-height: 1.5em;
+    margin: 0 !important;
+    cursor: pointer;
+  }
 }
 .nsinput_err{
   line-height: 25px;
   height: 25px;
   color: red;
 }
+
