@@ -14,7 +14,7 @@
 <ng-container *ngIf="type=='checkbox'">
   <div>
   <input #nsinput (change)="onChange($event)"  [type]="type" name="{{name}}" [id]="name"/>
-  <label for="{{name}}"><span><span></span></span>Remember me</label>
+  <label for="{{name}}"><span><span></span></span>{{label}}</label>
 </div>
 <div class="nsinput_err"><span></span></div>
 </ng-container>

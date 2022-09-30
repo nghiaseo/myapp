@@ -2,8 +2,12 @@ import {
   Component,
   forwardRef,
   HostListener,
+  Inject,
+  Injector,
   Input,
   OnInit,
+  Optional,
+  Self,
   ViewChild,
 } from '@angular/core';
 import {
@@ -27,7 +31,7 @@ import {
   ],
 })
 export class NsInputComponent implements OnInit, ControlValueAccessor {
-  @ViewChild('nsinputM') input!: NgControl;
+  //@ViewChild('nsinputM') input!: NgControl;
   _value: any;
   @Input() type: string = 'text';
   @Input() placeholder: string = 'type something';
@@ -36,9 +40,9 @@ export class NsInputComponent implements OnInit, ControlValueAccessor {
   @Input() label: string = 'default label';
   @Input() value: string = 'default value';
   @Input() required = false;
-  formSubmit = false;
+  doneInit = false;
 
-  constructor() {}
+  constructor(@Inject(Injector) private injector:Injector) { }
   writeValue(obj: any): void {
     if (obj !== undefined) {
       this.nsinput = obj;
@@ -56,7 +60,11 @@ export class NsInputComponent implements OnInit, ControlValueAccessor {
   propagateChange = (_: any) => {};
   propagateTouched = (_: any) => {};
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.injector.get(NgControl))
+     //const injectedControl = this.injector.get(NgControl)
+    // console.log(injectedControl.constructor)
+  }
   get nsinput() {
     return this._value;
   }
@@ -70,16 +78,16 @@ export class NsInputComponent implements OnInit, ControlValueAccessor {
   onChange(e: any) {
     if (this.type == 'checkbox') this.propagateChange(e.target.checked);
     else {
-      console.log(e.target);
     }
   }
   ngDoCheck() {
-    if (this.formSubmit) this.input?.control?.markAsTouched();
-    if (this.type == 'text'||'password') {
-      if (this.input?.control?.pristine && !this.formSubmit) {
-        this.formSubmit = true;
-      }
-    }
+   // console.log(this.input?.control?.touched)
+   // if (this.formSubmit) this.input?.control?.markAsTouched();
+    // if (this.type == 'text'||this.type =='password') {
+    //   console.log()
+    //   if(this.doneInit) this.input?.control?.markAsTouched();
+    //   if(this.input?.control?.pristine) this.doneInit = true
+    // }
   }
 
   @HostListener('keyup') keyupEvent() {

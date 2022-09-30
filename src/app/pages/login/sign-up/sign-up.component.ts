@@ -20,7 +20,7 @@ export class SignUpComponent implements OnInit {
   })
   }
   register(){
-    console.log(this.registerForm.value)
+    console.log(this.registerForm.get('name'))
   }
 
 }
