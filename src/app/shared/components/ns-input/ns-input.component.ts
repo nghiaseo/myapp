@@ -2,13 +2,8 @@ import {
   Component,
   forwardRef,
   HostListener,
-  Inject,
-  Injector,
   Input,
   OnInit,
-  Optional,
-  Self,
-  ViewChild,
 } from '@angular/core';
 import {
   AbstractControl,
@@ -42,7 +37,7 @@ export class NsInputComponent implements OnInit, ControlValueAccessor {
   @Input() required = false;
   doneInit = false;
 
-  constructor(@Inject(Injector) private injector:Injector) { }
+  constructor() { }
   writeValue(obj: any): void {
     if (obj !== undefined) {
       this.nsinput = obj;
@@ -61,9 +56,6 @@ export class NsInputComponent implements OnInit, ControlValueAccessor {
   propagateTouched = (_: any) => {};
 
   ngOnInit(): void {
-    console.log(this.injector.get(NgControl))
-     //const injectedControl = this.injector.get(NgControl)
-    // console.log(injectedControl.constructor)
   }
   get nsinput() {
     return this._value;

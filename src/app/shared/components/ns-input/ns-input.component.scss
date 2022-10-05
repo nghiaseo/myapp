@@ -9,32 +9,11 @@
   input[type=checkbox]{
     visibility: hidden;
   }
-  input[type=button]{
-    display: inline-block;
-    background: #6dabe4;
-    color: #fff;
-    border-bottom: none;
-    width: auto;
-    padding: 15px 39px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  input[type=button]:hover{
-    background: #4292dc;
-  }
-  input[type=button]:focus{
-    border: none;
-  }
   input[type="checkbox"]:not(old) + label {
     display: inline-block;
     line-height: 1.5em;
     margin: 0 !important;
     cursor: pointer;
   }
-}
-.nsinput_err{
-  line-height: 25px;
-  height: 25px;
-  color: red;
 }
 

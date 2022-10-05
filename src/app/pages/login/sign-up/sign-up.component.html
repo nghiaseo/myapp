@@ -1,21 +1,76 @@
 <section class="signup">
   <div class="container">
-      <div class="signup-content">
-          <div class="signup-form">
-              <h2 class="form-title">Sign up</h2>
-              <form class="register-form" [formGroup]="registerForm">
-                <app-ns-input formControlName="name" [label]="'Account'" [name]="'name'" [placeholder]="'Enter your account'" [icon]="'fa-solid fa-user'" [required]="true"></app-ns-input>
-                <app-ns-input formControlName="email" [label]="'Email'" [name]="'email'" [placeholder]="'Enter your email'" [icon]="'fa-solid fa-envelope'" [required]="true"></app-ns-input>
-                <app-ns-input formControlName="password" [label]="'Password'" [name]="'password'" [type]="'password'" [placeholder]="'Enter your password'" [icon]="'fa-solid fa-lock'" [required]="true"></app-ns-input>
-                <app-ns-input formControlName="rePassword" [label]="'Re-password'" [name]="'re-password'" [type]="'password'" [placeholder]="'Re-enter your password'" [icon]="'fa-solid fa-lock'" [required]="true"></app-ns-input>
-                <app-ns-input formControlName="agreeTerms" [type]="'checkbox'" [label]="'I agree all statements in Terms of service'" [name]="'agree-term'"></app-ns-input>
-                <app-ns-input [type]="'button'" [value]="'Register'" (click)="register()"></app-ns-input>
-              </form>
+    <div class="signup-content">
+      <div class="signup-form">
+        <h2 class="form-title">Sign up</h2>
+        <form class="register-form" [formGroup]="registerForm">
+          <app-ns-input
+            formControlName="name"
+            [label]="'Account'"
+            [name]="'name'"
+            [placeholder]="'Enter your account'"
+            [icon]="'fa-solid fa-user'"
+            [required]="true"
+          ></app-ns-input>
+          <app-ns-input
+            formControlName="email"
+            [label]="'Email'"
+            [name]="'email'"
+            [placeholder]="'Enter your email'"
+            [icon]="'fa-solid fa-envelope'"
+            [required]="true"
+          ></app-ns-input>
+          <div formGroupName="passwordGroup" class="passwordGroup">
+            <div>
+              <app-ns-input
+                formControlName="password"
+                [label]="'Password'"
+                [name]="'password'"
+                [type]="'password'"
+                [placeholder]="'Enter your password'"
+                [icon]="'fa-solid fa-lock'"
+                [required]="true"
+              ></app-ns-input>
+              <app-ns-input
+                formControlName="rePassword"
+                [label]="'Re-password'"
+                [name]="'re-password'"
+                [type]="'password'"
+                [placeholder]="'Re-enter your password'"
+                [icon]="'fa-solid fa-lock'"
+                [required]="true"
+              ></app-ns-input>
+            </div>
+
+            <div class="nsinput_err"
+              *ngIf="
+                passwordGroup.errors &&
+                passwordGroup.errors['passwordConfirmed']&&
+                passwordGroup.get('password')?.touched&&
+                passwordGroup.get('rePassword')?.touched
+              "
+            >
+              Mật khẩu và xác nhận mật khẩu không trùng nhau
+            </div>
           </div>
-          <div class="signup-image">
-              <figure><img src="assets/images/signup-image.jpg" alt="sing up image"></figure>
-              <a routerLink="../signIn" class="signup-image-link">I am already member</a>
-          </div>
+          <app-ns-input
+            formControlName="agreeTerms"
+            [type]="'checkbox'"
+            [label]="'I agree all statements in Terms of service'"
+            [name]="'agree-term'"
+          ></app-ns-input>
+          <button class="sign_btn" (click)="register()" [disabled]="registerForm.invalid||!registerForm.controls['agreeTerms'].value">Register</button>
+          <!-- <button class="sign_btn" (click)="register()">Register</button> -->
+        </form>
       </div>
+      <div class="signup-image">
+        <figure>
+          <img src="assets/images/signup-image.jpg" alt="sing up image" />
+        </figure>
+        <a routerLink="../signin" class="signup-image-link"
+          >I am already member</a
+        >
+      </div>
+    </div>
   </div>
 </section>

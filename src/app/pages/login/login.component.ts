@@ -11,7 +11,8 @@ export class LoginComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
-    this.router.navigateByUrl('register')
+    if(this.router.url=='/')
+    this.router.navigateByUrl('signin')
   }
 
 }

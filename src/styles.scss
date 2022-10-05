@@ -792,3 +792,29 @@ label.valid:after {
 app-ns-input[ng-reflect-type="button"]{
   display: inline-block !important;
 }
+.sign_btn{
+  display: inline-block;
+  background: #6dabe4;
+  color: #fff;
+  border: none;
+  width: auto;
+  padding: 15px 39px;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+.sign_btn:hover{
+  background: #4292dc;
+}
+.sign_btn:focus{
+  border: none;
+}
+.sign_btn[disabled]{
+  cursor: default;
+  background-color: #777;
+}
+.nsinput_err{
+  line-height: 25px;
+ min-height: 25px;
+  color: red;
+}

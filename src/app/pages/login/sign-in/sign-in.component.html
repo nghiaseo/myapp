@@ -12,7 +12,7 @@
                 <app-ns-input  formControlName="name" [label]="'Account'" [name]="'name'" [placeholder]="'Account'" [icon]="'fa-solid fa-user'" [required]="true" ></app-ns-input>
                 <app-ns-input formControlName="password" [label]="'Password'" [type]="'password'" [name]="'password'" [placeholder]="'Password'" [icon]="'fa-solid fa-lock'" [required]="true" ></app-ns-input>
                 <app-ns-input formControlName="remember" [type]="'checkbox'" [label]="'Remember me'" [name]="'remember'"></app-ns-input>
-                <app-ns-input [type]="'button'" [value]="'Log In'" (click)="login()"></app-ns-input>
+                <button class="sign_btn" (click)="login()" [disabled]="signinForm.invalid">Log In</button>
               </form>
               <div class="social-login">
                   <span class="social-label">Or login with</span>
